@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="Formulario.html">
+        <div>
+            <label for="nombre">Nombre:</label><br>
+            <input type="text" id="nombre" name="nombre" required><br>
+        </div>
+        <div>
+            <label for="apellido">Apellido:</label><br>
+            <input type="text" id="apellido" name="apellido" required>
+        </div>
+        <div>
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+            <label for="cumple">Fecha de Nacimiento:</label><br>
+            <input type="date" id="cumple" name="cumple" required>
+        </div>
+        <div>
+            <label for="deportes">Deporte Favorito:</label><br>
+            <select  name="deportes" id="deportes" required>
+                <option value="Futbol">Futbol</option>
+                <option value="Basquet">Basquet</option>
+                <option value="Voley">Voley</option>
+                <option value="Handball">Handball</option>
+                <option value="Atletismo">Atletismo</option>
+                <option value="Boxeo">Boxeo</option>
+                <option value="Rugby">Rugby</option>    
+                <option value="Tenis">Tenis</option> 
+        </div>
+    
+            <input type="reset" value="Reset">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+        
+      </form>
+</body>
+</html>
