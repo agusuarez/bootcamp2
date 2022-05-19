@@ -1,0 +1,32 @@
+*{
+    font-size: 14px;
+    font-family: 'Roboto Flex', sans-serif; 
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.navigation {
+    display: inline-block;
+    width: 150px;
+    background-color: greenyellow;
+    left:10%
+}
+
+.content {
+    display: inline-block;
+    color: blue;
+    width: 250px;
+}
+
+body{
+    position:relative;
+  }
+  
+.sidebar{
+    display: inline-block;
+    width: 150px;
+    background-color: greenyellow;
+}
+
+
+

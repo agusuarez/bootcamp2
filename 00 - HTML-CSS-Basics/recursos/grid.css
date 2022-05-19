@@ -1,0 +1,130 @@
+body{
+    background-color: #003290;
+}
+
+a{
+    color: #FFFFFF;
+}
+
+h4{
+    text-align: center;
+}
+
+li{
+    list-style: none;
+}
+.container{
+    font-size: 25px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 100px;
+    
+}
+
+.container > div{
+    display: block;
+    padding: 15px;
+    color: #FFFFFF;
+    
+}
+
+.container .menu1 {
+    grid-column: 1 / 3;
+}
+
+.container .menu2{
+    grid-column: 3 / 7;
+}
+
+/*  Imagenes como fondo del div */
+/*  .container .img1{
+    grid-column: 1 / 5;
+    background: url("https://stadium-azteca.underdog.gs/soccerly/1/2021/04/08/1617894771.jpg");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 420px;
+}
+
+.container .img2{
+    grid-column: 5 / 7;
+    background: url("http://2.bp.blogspot.com/-xh8UtULAIpI/TopYLk2MgfI/AAAAAAAAAOk/25AzgZ545gI/s1600/MARTIN+PALERMO.jpg");
+    background-size: 100% 100%;
+    background-repeat:no-repeat;
+    background-size: cover;
+    height: 420px;
+}*/
+
+.container .img1{
+    grid-column: 1 / 5;
+}
+
+.container .img2{
+    grid-column: 5 / 7;
+}
+
+.container .img3{
+    grid-column: 1 / 3;
+}
+
+.container .img4{
+    grid-column: 3 / 7;
+}
+
+.container .menuabajo{
+    font-size: 14px;
+}
+
+.container .clear{
+    grid-column: 1 / 7;
+}
+
+
+/* Para que se achiquen o agranden acordemente cuando cambio el tamaño de pantalla */
+.container .img1 img{
+    width: 100%;
+    height: 100%;
+}
+
+.container .img2 img{
+    width: 100%;
+    height: 100%;
+}
+
+.container .img3 img{
+    width: 100%;
+    height: 100%;
+}
+
+.container .img4 img{
+    width: 100%;
+    height: 100%;
+}
+
+#menuabajo1{
+    text-align: left;
+    grid-column: 1 / 3;
+}
+
+@media screen and (max-width: 480px){
+    .container .img1{
+        grid-column: 1 / 7;
+    }
+    
+    .container .img2{
+        grid-column: 1 / 7;
+    }
+
+    .container .img3{
+        grid-column: 1 / 7;
+    }
+
+    .container .img4{
+        grid-column: 1 / 7;
+    }
+    
+    .container .menuabajo{
+        grid-column: 1 /7;
+    }
+}
+
