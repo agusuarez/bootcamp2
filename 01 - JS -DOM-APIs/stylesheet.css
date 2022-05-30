@@ -1,0 +1,32 @@
+*{
+    font-size: 20px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.navigation {
+    display: inline-block;
+    width: 300px;
+    background-color: greenyellow;
+    bottom: 40px;
+}
+
+.content {
+    display: inline-block;
+    color: blue;
+    width: 550px;
+}
+
+body{
+    position:relative;
+  }
+  
+.sidebar{
+    display: inline-block;
+    width: 300px;
+    background-color: greenyellow;
+}
+
+.button{
+    display: block;
+}

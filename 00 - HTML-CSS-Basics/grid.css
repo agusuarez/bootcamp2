@@ -7,7 +7,6 @@ a{
 }
 
 h4{
-    text-align: center;
 }
 
 li{
@@ -30,6 +29,7 @@ li{
 
 .container .menu1 {
     grid-column: 1 / 3;
+    
 }
 
 .container .menu2{
@@ -37,7 +37,7 @@ li{
 }
 
 /*  Imagenes como fondo del div */
-/*  .container .img1{
+  /*.container .img1{
     grid-column: 1 / 5;
     background: url("https://stadium-azteca.underdog.gs/soccerly/1/2021/04/08/1617894771.jpg");
     background-size: 100% 100%;

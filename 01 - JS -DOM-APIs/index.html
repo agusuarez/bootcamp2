@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>
+      Ejercicio1
+    </title>
+    
+    <script type="text/javascript">
+        var opacity = 0;
+        var intervalID = 0;
+        window.onload = fadeIn;
+        
+        function fadeIn() {
+            setInterval(show, 300);
+        }
+  
+        function show() {
+            var section = document.getElementById("content");
+            opacity = Number(window.getComputedStyle(section)
+                             .getPropertyValue("opacity"));
+            if (opacity < 1) {
+                opacity = opacity + 0.1;
+                section.style.opacity = opacity
+            } else {
+                clearInterval(intervalID);
+            }   
+        }
+
+        function mensaje(){
+            alert('Este es un mensaje de alerta');
+        }
+
+        function respuesta(){
+            var respuesta = new XMLHttpRequest();
+            respuesta.open('GET' , 'http://api.icndb.com/jokes/random' );
+
+            respuesta.addEventListener('load', (data) => {
+                var dataJSON = (JSON.parse(data.target.response));
+                var article = document.getElementById("article");
+                article.innerText = `${value.joke}`;
+            })
+            
+            respuesta.send();
+
+        }
+    </script>
+</head>
+  
+<body>
+    <header class="encabezado">Header</header>
+    <nav class="navigation">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor itaque cum ex, debitis hic sunt impedit iure reprehenderit quisquam cumque delectus assumenda eaque accusamus eius, corporis dolorem? Animi, officia nisi.</nav>
+    <section class="content" id="content" style="opacity: 0;" onload="fadein()">
+       <article id="article">Hello World</article>
+       <button type="button" class="button" onclick="respuesta();">Clickeame</button>
+    </section>
+    <aside class="sidebar">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo numquam, amet illum obcaecati excepturi dolor, natus quisquam maiores omnis voluptates voluptas, laudantium ab cumque iste blanditiis porro eaque. Excepturi.</aside>
+    
+    </body>
+<html>
