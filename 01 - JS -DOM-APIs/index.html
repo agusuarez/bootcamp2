@@ -15,7 +15,7 @@
         window.onload = fadeIn;
         
         function fadeIn() {
-            setInterval(show, 300);
+            setInterval(show, 100);
         }
   
         function show() {
@@ -36,28 +36,126 @@
 
         function respuesta(){
             var respuesta = new XMLHttpRequest();
-            respuesta.open('GET' , 'http://api.icndb.com/jokes/random' );
+            var url = 'http://api.icndb.com/jokes/random';
+            respuesta.open("GET", `${url}`);
 
-            respuesta.addEventListener('load', (data) => {
-                var dataJSON = (JSON.parse(data.target.response));
-                var article = document.getElementById("article");
-                article.innerText = `${value.joke}`;
-            })
-            
+           
+            respuesta.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('article').innerHTML = this.responseText;
+                }
+            }
             respuesta.send();
-
         }
+
+        
+       /* function promesa() {
+            return new Promise(function(resolve, reject) {
+                var respuesta = new XMLHttpRequest();
+                var url = 'http://www.jkadadgchanchito.com';
+                respuesta.open("GET", `${url}`);
+                respuesta.onload = function() {
+                    if (respuesta.status === 200) {
+                        resolve(respuesta.response);
+                        console.log(respuesta.response);
+                    } else {
+                        reject(new Error(respuesta.statusText));
+                        console.log(respuesta.statusText);
+                    }
+                };
+                    
+                respuesta.onerror = function() {
+                    console.log("Error. No se pudo resolver");
+                };
+ 
+                respuesta.send();
+                });
+            }*/
+        
+        function promesa (metodo,url){
+            return new Promise((resolve,reject) => {
+                var xhr = new XMLHttpRequest();
+                xhr.open(metodo, url)
+                
+                xhr.onload = () => {
+                    if (xhr.status === 200){
+                        resolve(xhr.responseText);
+                        //console.log(xhr.responseText);
+                    }
+                    else{
+                        reject(Error(xhr.status.responseText)); 
+                        
+                    }
+                }
+
+                xhr.onerror = function(){
+                    document.getElementById('article').style.color = 'red';
+                }
+                xhr.send();
+            });
+        }
+
+        function busqueda(){
+            var xhr = new XMLHttpRequest();
+            $xhr = document.getElementById('xhr');
+            //Uso esta variable para que en cada ciclo le pegue a esto y no al DOM directamente
+            $fragment = document.createDocumentFragment();
+            xhr.open("GET", "https://api.github.com/search/repositories?q=Javascript", true);
+           
+
+            xhr.addEventListener('load',(data) => {
+                const json = JSON.parse(xhr.response);
+                    console.log(json);
+                    
+                    
+                    for (const aux of json.items){
+                        const $li = document.createElement("li");
+                        $li.textContent = `${aux.url}`;
+                        $fragment.appendChild($li);
+                        console.log($li);
+                    }
+                $xhr.appendChild($fragment);
+            })
+          
+           
+            
+            xhr.send();
+        
+        }
+
+        function tabla() {
+            $div = document.getElementsByTagName("article")[0];
+            var tabla  = document.createElement("table");
+
+           
+            for (var i = 0; i < 6; i++) {
+                var fila = document.createElement("tr");
+      
+                for (var j = 0; j < 6; j++) {
+                    var celda = document.createElement("td");
+                    var textoCelda = document.createTextNode(i+" "+j);
+                    celda.appendChild(textoCelda);
+                    fila.appendChild(celda);
+                }
+  
+                tabla.appendChild(fila);
+      
+            }
+        $div.appendChild(tabla);
+        }
+
     </script>
 </head>
   
 <body>
-    <header class="encabezado">Header</header>
-    <nav class="navigation">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolor itaque cum ex, debitis hic sunt impedit iure reprehenderit quisquam cumque delectus assumenda eaque accusamus eius, corporis dolorem? Animi, officia nisi.</nav>
+    <header class="encabezado"></header>
+    
     <section class="content" id="content" style="opacity: 0;" onload="fadein()">
-       <article id="article">Hello World</article>
-       <button type="button" class="button" onclick="respuesta();">Clickeame</button>
+       <article id="article"></article>
+       <ol id="xhr"></ol>
+       <button type="button" class="button" onclick="tabla()">Clickeame</button>
     </section>
-    <aside class="sidebar">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo nemo numquam, amet illum obcaecati excepturi dolor, natus quisquam maiores omnis voluptates voluptas, laudantium ab cumque iste blanditiis porro eaque. Excepturi.</aside>
+    
     
     </body>
 <html>

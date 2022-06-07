@@ -30,3 +30,15 @@ body{
 .button{
     display: block;
 }
+
+table{
+    color:#003290;
+    text-align: center;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td{
+    font-size: 25pt;
+    border: 1px solid;
+}
