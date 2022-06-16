@@ -49,28 +49,7 @@
         }
 
         
-       /* function promesa() {
-            return new Promise(function(resolve, reject) {
-                var respuesta = new XMLHttpRequest();
-                var url = 'http://www.jkadadgchanchito.com';
-                respuesta.open("GET", `${url}`);
-                respuesta.onload = function() {
-                    if (respuesta.status === 200) {
-                        resolve(respuesta.response);
-                        console.log(respuesta.response);
-                    } else {
-                        reject(new Error(respuesta.statusText));
-                        console.log(respuesta.statusText);
-                    }
-                };
-                    
-                respuesta.onerror = function() {
-                    console.log("Error. No se pudo resolver");
-                };
- 
-                respuesta.send();
-                });
-            }*/
+      
         
         function promesa (metodo,url){
             return new Promise((resolve,reject) => {
@@ -124,24 +103,32 @@
         }
 
         function tabla() {
-            $div = document.getElementsByTagName("article")[0];
+            //Traigo al elemento del dom que le voy a pegar
+            $article = document.getElementsByTagName("article")[0];
+            //Creo la tabla
             var tabla  = document.createElement("table");
 
            
             for (var i = 0; i < 6; i++) {
+                //Creo filas
                 var fila = document.createElement("tr");
       
                 for (var j = 0; j < 6; j++) {
+                    //Creo celdas
                     var celda = document.createElement("td");
+                    //Creo un texto con el contenido de la celda
                     var textoCelda = document.createTextNode(i+" "+j);
+                    //Adjunto el contenido de la celda a la celda
                     celda.appendChild(textoCelda);
+                    //Adjunto la celda a la fila
                     fila.appendChild(celda);
                 }
-  
+                //Adjunto la fila a la tabla
                 tabla.appendChild(fila);
       
             }
-        $div.appendChild(tabla);
+            //Y aqui pego la tabla al DOM
+            $article.appendChild(tabla);
         }
 
     </script>

@@ -1,0 +1,20 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 100px;
+    background-color: aqua;
+}
+
+.grid > div{
+    background-color: aqua;
+    display: block;
+    padding: 15px;
+    color: #FFFFFF;
+    
+}
+
+.container {
+    background-color: aqua;
+    padding: 100px;
+    margin: 100px;
+}
