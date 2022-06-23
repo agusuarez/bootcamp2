@@ -10,19 +10,28 @@ class movies extends Controller
     public function index()
     {
         $movie = movie::all();
-        return view('movies.index')->with('movie',$movie);
+        return view('movies.crud')->with('movie',$movie);
     }
+
+    
 
     public function store(Request $request)
     {
+        $request->validate([
+            'año' => 'required|integer|min:1800|max:2022',
+            'titulo' => 'required',
+            'duracion' => 'required|integer',
+            'sinopsis' => 'required',
+            'actorprincipalid' => 'required|integer'
+        ]);
+
+
         $movie = new movie();
 
-       
-
-        $movie->año = $request->get('año');
-        $movie->titulo = $request->get('titulo');
-        $movie->duracion = $request->get('duracion');
-        $movie->sinopsis = $request->get('sinopsis');
+        $movie->año = $request->año;
+        $movie->titulo = $request->titulo;
+        $movie->duracion = $request->duracion;
+        $movie->sinopsis = $request->sinopsis;
 
         if ($request->hasfile('imagen')){
             $file = $request->file('imagen');

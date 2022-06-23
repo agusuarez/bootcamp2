@@ -20,6 +20,10 @@ class actors extends Controller
 
     public function store(Request $request)
     {
+        $request -> validate([
+            'nombre' => 'required',
+            'fechanacimiento' => 'required|date'
+        ]);
         $actors = new actor();
         $actors->nombre = $request->get('nombre');
         $actors->fechanacimiento = $request->get('fechanacimiento');

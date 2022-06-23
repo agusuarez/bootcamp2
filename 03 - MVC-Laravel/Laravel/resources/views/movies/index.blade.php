@@ -45,6 +45,7 @@ img {
 <body>
     <div id="container">
         <a href="movies/create" class="btn btn-primary">Crear</a>
+        <a href="movies/crud" class="btn btn-primary">Crud</a>
         <div id="grid">
         @foreach($movie as $movie)
             <div class="peli">
